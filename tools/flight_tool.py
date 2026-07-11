@@ -221,7 +221,7 @@ def resolve_location_to_iata(location: str):
     Converts country/city/airport/IATA into IATA code.
 
     Examples:
-    Bangladesh -> DAC
+    India -> DEL
     Japan -> NRT
     Dhaka -> DAC
     Tokyo -> NRT
@@ -536,6 +536,6 @@ def search_flights(query: str, limit: int = 10):
 
 
 if __name__ == "__main__":
-    print(search_flights("Plan a 7 days Japan trip from Bangladesh"))
+    print(search_flights("Plan a 7 days Japan trip from India"))
     print("\n" + "=" * 80 + "\n")
     print(search_flights("all country flight info"))
