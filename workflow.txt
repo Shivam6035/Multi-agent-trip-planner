@@ -3,3 +3,9 @@
 
 conda create -n travel python=3.11 -y
 new-item requirements.txt  -- to create files
+
+### --- setup Database on pgsql --- ##
+  -  copy external connection link from render
+  -  open pgadmin4 > server > register > server > setup > all
+      host name(copy of link ) > DBname > Password (save pwd) > User
+
