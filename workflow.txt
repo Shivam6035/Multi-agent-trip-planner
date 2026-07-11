@@ -9,3 +9,6 @@ new-item requirements.txt  -- to create files
   -  open pgadmin4 > server > register > server > setup > all
       host name(copy of link ) > DBname > Password (save pwd) > User
 
+## --- creating file -- ##
+new-item tools\__init__.py -Force
+new-item tools\flight_tool.py, tools\tavily_tool.py -Force  or [new-item -Path tools -Name flight_tool.py, tavily_tool.py -Force]
