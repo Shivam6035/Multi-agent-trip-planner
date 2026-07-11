@@ -1,0 +1,5 @@
+
+# -- create a venv --- #
+
+conda create -n travel python=3.11 -y
+new-item requirements.txt  -- to create files
