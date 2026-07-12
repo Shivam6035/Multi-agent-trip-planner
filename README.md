@@ -74,13 +74,13 @@ python app.py
 User Query
     ↓
 ┌─────────────────────────────────────────────────────────────┐
-│                                                                 │
-│  🛫 Flight Agent        🏨 Hotel Agent                         │
-│  (Free Flight API)      (Tavily Search)                         │
-│                                                                 │
-│  📍 Itinerary Agent     💬 Final Response Agent                │
-│  (Google Maps/Places)   (Groq Llama 3)                         │
-│                                                                 │
+│                                                             |
+│  🛫 Flight Agent        🏨 Hotel Agent                     |
+│  (Free Flight API)      (Tavily Search)                     |   
+│                                                             |    
+│  📍 Itinerary Agent     💬 Final Response Agent            |    
+│  (Google Maps/Places)   (Groq Llama 3)                      |   
+│                                                             |   
 └─────────────────────────────────────────────────────────────┘
     ↓
 SHARED STATE (TravelState)
