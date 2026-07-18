@@ -1,0 +1,48 @@
+# name: AWS ECR + App Runner Deploy
+
+# on:
+#   push:
+#     branches: [ main ]
+#   workflow_dispatch:
+
+# jobs:
+#   deploy:
+#     name: Build, push Docker image, deploy to App Runner
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v3
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: ${{ secrets.AWS_REGION }}
+
+#       - name: Set image variables
+#         run: |
+#           echo "ECR_REGISTRY=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com" >> $GITHUB_ENV
+#           echo "IMAGE_NAME=${{ secrets.ECR_REPOSITORY }}" >> $GITHUB_ENV
+#           echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_ENV
+
+#       - name: Ensure ECR repository exists
+#         run: |
+#           aws ecr describe-repositories --repository-names "$IMAGE_NAME" >/dev/null 2>&1 || \
+#             aws ecr create-repository --repository-name "$IMAGE_NAME"
+
+#       - name: Login to Amazon ECR
+#         run: |
+#           aws ecr get-login-password | docker login --username AWS --password-stdin "$ECR_REGISTRY"
+
+#       - name: Build and push Docker image
+#         run: |
+#           IMAGE_URI="$ECR_REGISTRY/$IMAGE_NAME"
+#           docker build -t "$IMAGE_URI:$IMAGE_TAG" .
+#           docker tag "$IMAGE_URI:$IMAGE_TAG" "$IMAGE_URI:latest"
+#           docker push "$IMAGE_URI:$IMAGE_TAG"
+#           docker push "$IMAGE_URI:latest"
+
+#       - name: Trigger App Runner deployment
+#         run: |
+#           aws apprunner start-deployment --service-arn "$AWS_APPRUNNER_SERVICE_ARN"

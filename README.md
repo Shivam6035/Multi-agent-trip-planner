@@ -1,3 +1,56 @@
+<<<<<<< HEAD
+# Multi-agent-trip-planner
+
+A FastAPI + LangGraph multi-agent travel planner. This repository includes a Dockerfile for container builds and can be deployed to AWS using GitHub Actions.
+
+## Deployment Overview
+
+This project is configured to deploy via GitHub Actions to AWS App Runner using an ECR container image.
+
+### What the workflow does
+
+- builds the Docker image from `Dockerfile`
+- pushes the image to Amazon ECR
+- triggers an AWS App Runner deployment
+
+### Required GitHub secrets
+
+Add the following secrets in your GitHub repository settings:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_REGION`
+- `AWS_ACCOUNT_ID`
+- `ECR_REPOSITORY`
+- `AWS_APPRUNNER_SERVICE_ARN`
+
+### AWS setup steps
+
+1. Create an ECR repository in your AWS account.
+2. Create an App Runner service that uses your ECR repository and exposes port `8000`.
+3. Configure App Runner environment variables for secret values such as:
+   - `GROQ_API_KEY`
+   - `TAVILY_API_KEY`
+   - `DATABASE_URL`
+   - `AVIATIONSTACK_API_KEY`
+   - `DEFAULT_ORIGIN_IATA`
+   - `LANGSMITH_TRACING`
+   - `LANGSMITH_ENDPOINT`
+   - `LANGSMITH_API_KEY`
+   - `LANGSMITH_PROJECT`
+
+### Running deployment
+
+Push to the `main` branch and the workflow in `.github/workflows/aws-deploy.yml` will execute.
+
+If you want to manually trigger the workflow, use the GitHub Actions tab and select "Run workflow".
+
+## Local development
+
+- Install dependencies: `pip install -r requirements.txt`
+- Run locally: `uvicorn app:app --reload --host 0.0.0.0 --port 8000`
+- Keep sensitive values in `.env`, which is ignored by Git.
+=======
 # Multi-Agent Trip Planner
 
 **AI-powered travel planning that handles flights, hotels, and itineraries in one query. Get a complete trip plan in PDF format—no endless back-and-forth required.**
@@ -201,3 +254,4 @@ Open an issue on GitHub or reach out via [shivamzack6035@gmail.com].
 ---
 
 **Built with AI. Shipped for travelers.**
+>>>>>>> baa94cd7e271e0df0d8542f4e19fa6f637c267f2
