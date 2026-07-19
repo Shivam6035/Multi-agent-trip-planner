@@ -127,11 +127,11 @@ output "database_endpoint" {
 #}
 
 
-terraform {
-   backend "s3" {
-     bucket         = "shivam-nitr-tripmate-state"
-     key            = "global/s3/terraform.tfstate"
-     region         = "us-east-1"
-     encrypt        = true
-   }
-}
+#terraform {
+#   backend "s3" {
+#     bucket         = "shivam-nitr-tripmate-state"
+#     key            = "global/s3/terraform.tfstate"
+#     region         = "us-east-1"
+#     encrypt        = true
+#   }
+#}
