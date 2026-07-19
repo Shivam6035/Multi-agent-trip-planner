@@ -17,10 +17,10 @@ try:
     cursor = conn.cursor()
     cursor.execute("SELECT NOW();")
     record = cursor.fetchone()
-    print("🎉 Connected successfully! Database time:", record[0])
+    print("Connected successfully! Database time:", record[0])
     
 except Exception as e:
-    print("\n❌ Connection error:", e)
+    print("\n Connection error:", e)
 finally:
     # This block now runs safely even if the connection failed
     if cursor:
