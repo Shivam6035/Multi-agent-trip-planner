@@ -110,21 +110,21 @@ output "database_endpoint" {
 }
 
 
-# 7 S3 bucket
+# 7. S3 bucket creation
 
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = "shivam-nitr-tripmate-state" # Change this to a globally unique name
-}
+#resource "aws_s3_bucket" "terraform_state" {
+#  bucket = "shivam-nitr-tripmate-state" # Change this to a globally unique name
+#}
 
-resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "terraform-state-locking"
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
-  attribute {
-    name = "LockID"
-    type = "S"
-  }
-}
+#resource "aws_dynamodb_table" "terraform_locks" {
+#  name         = "terraform-state-locking"
+#  billing_mode = "PAY_PER_REQUEST"
+#  hash_key     = "LockID"
+#  attribute {
+#    name = "LockID"
+#    type = "S"
+#  }
+#}
 
 
 terraform {
