@@ -128,10 +128,10 @@ resource "aws_dynamodb_table" "terraform_locks" {
 
 
 terraform {
-  # backend "s3" {
-  #   bucket         = "shivam-nitr-tripmate-state"
-  #   key            = "global/s3/terraform.tfstate"
-  #   region         = "us-east-1"
-  #   encrypt        = true
-  # }
+   backend "s3" {
+     bucket         = "shivam-nitr-tripmate-state"
+     key            = "global/s3/terraform.tfstate"
+     region         = "us-east-1"
+     encrypt        = true
+   }
 }
