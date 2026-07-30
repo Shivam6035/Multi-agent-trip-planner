@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Multi-agent-trip-planner
 
 A FastAPI + LangGraph multi-agent travel planner. This repository includes a Dockerfile for container builds and can be deployed to AWS using GitHub Actions.
